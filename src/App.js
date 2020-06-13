@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { Cards, Chart, CountryPicker } from './components'
+import styles from './App.module.css'
+import { fetchSummaryData } from './api'
 
 function App() {
+  const [isFetching, setFetching] = useState(false)
+  const [data, setData ] = useState([])
+
+  useEffect(() => {
+    (async function() {
+      setFetching(true)
+      setData(await fetchSummaryData())
+      setFetching(false)
+    })();
+
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.container}>
+
+        <h1>Abubaker</h1>
+
+          { console.log(data) }
+
+        <CountryPicker />
+
+  { isFetching ? <div>Loading...</div>: <Cards summaryData = {data} /> }
+
+        <Chart />
     </div>
   );
 }
