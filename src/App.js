@@ -27,6 +27,7 @@ function App() {
       setCountry(selectedCountry)
     } else {
       setData(await fetchSummaryData())
+      setCountry('')
     }
 
     //const countryData12 = countriesData.map(country => country.country)
