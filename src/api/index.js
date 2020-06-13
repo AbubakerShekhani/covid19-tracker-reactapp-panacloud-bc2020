@@ -2,7 +2,9 @@ import axios from 'axios'
 
 const baseURL = 'https://covid19.mathdro.id/api'
 
-const baseURL2 = 'https://api.covid19api.com/'
+//const baseURL2 = 'https://api.covid19api.com/'
+
+const countriesStatsAPI = 'https://corona.lmao.ninja/v2/countries'
 
 export const fetchSummaryData = async () => {
   try {
@@ -54,3 +56,14 @@ export const fetchDailyData = async () => {
     return error;
   }
 };
+
+export const fetchCountriesDetailedStats = async () => {
+  try {
+    const { data }  = await axios.get(`${countriesStatsAPI}`);
+
+    return data;
+
+  } catch (err) {
+    return err
+  }
+}
