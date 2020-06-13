@@ -6,7 +6,11 @@ import styles from './Chart.module.css'
 const Chart = (props) => {
 
   const country     = props.country
-  const summaryData = props.data
+  const { confirmed, recovered, deaths } = props.data
+
+  console.log("Props")
+
+  //const summaryData = props.data
 
   const [dailyStatisticsData, setdailyStatisticsData] = useState({})
 
@@ -20,9 +24,10 @@ const Chart = (props) => {
     fetchDailyDataFromAPI()
   }, [])
 
-  console.log(`${country} from props from state`);
-  console.log("Data for charts data")
-  console.log(dailyStatisticsData)
+  //console.log(`${country} from props from state`);
+  //console.log("Data for charts data")
+  //console.log(dailyStatisticsData)
+
 
 
   const lineChart = (
@@ -48,9 +53,31 @@ const Chart = (props) => {
     ) :null
     );
 
+
+  const barChart = (
+    confirmed ? (
+      <Bar
+        data={{
+          labels: ['Infected', 'Recovered', 'Deaths'],
+          datasets: [
+            {
+              label: 'People',
+              backgroundColor: ['rgba(0, 0, 255, 0.5)', 'rgba(0, 255, 0, 0.5)', 'rgba(255, 0, 0, 0.5)'],
+              data: [confirmed.value, recovered.value, deaths.value],
+            },
+          ],
+        }}
+        options={{
+          legend: { display: false },
+          title: { display: true, text: `Current state in ${country}` },
+        }}
+      />
+    ) : null
+  );
+
   return (
     <div className={styles.container}>
-      { lineChart }
+      { country ? barChart: lineChart }
     </div>
   )
 }
