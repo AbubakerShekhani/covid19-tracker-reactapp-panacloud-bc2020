@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Cards, Chart, CountryPicker } from './components'
+import { Cards, Chart } from './components'
+import Countries from './components/CountryPicker/CountryPicker'
 import styles from './App.module.css'
-import { fetchSummaryData } from './api'
+import { fetchSummaryData, fetchDataByCountry } from './api'
 
 function App() {
   const [isFetching, setFetching] = useState(false)
   const [data, setData ] = useState([])
+  const [country, setCountry] = useState('')
 
   useEffect(() => {
     (async function() {
@@ -16,18 +18,30 @@ function App() {
 
   }, [])
 
+  const handleChangeCountry = async (selectedCountry) => {
+
+    if(selectedCountry) {
+      setData(await fetchDataByCountry(selectedCountry))
+      setCountry(selectedCountry)
+    } else {
+      setData(await fetchSummaryData())
+    }
+
+  }
+
   return (
-    <div className={styles.container}>
+    <div>
+      <div className={styles.container}>
 
-        <h1>Abubaker</h1>
+          <Countries handleChangeCountry={handleChangeCountry}/>
 
-          { console.log(data) }
-
-        <CountryPicker />
-
-  { isFetching ? <div>Loading...</div>: <Cards summaryData = {data} /> }
-
-        <Chart />
+      </div>
+      <div className={styles.container}>
+          { isFetching ? <div>Loading...</div>: <Cards summaryData = {data} /> }
+        </div>
+      <div>
+        <Chart data={data} country={country} />
+      </div>
     </div>
   );
 }
