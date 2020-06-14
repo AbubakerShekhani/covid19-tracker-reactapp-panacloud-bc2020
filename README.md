@@ -1,3 +1,17 @@
+<h1>COVID-19 Tracker App developed using React</h1>
+
+<p>This web application is developed using React.</p>
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). This project helped us learned and apply the following <b>concepts</b>
+- React Hooks (useState, useEffect)
+- Deployment on Surge
+- GitHub actions for CI/CD
+- React in general
+- Material UI for layout and styling
+
+<h2>Project LIVE URL</h2> 
+http://covid19-trackerapp-abubaker-pcbc2020.surge.sh/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
