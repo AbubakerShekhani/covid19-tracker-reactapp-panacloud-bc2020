@@ -2,20 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { Cards, Chart } from './components'
 import Countries from './components/CountryPicker/CountryPicker'
 import styles from './App.module.css'
-import { fetchSummaryData, fetchDataByCountry, fetchCountriesDetailedStats } from './api'
+import { fetchSummaryData, fetchDataByCountry } from './api'
 import logo from './images/logo.png';
 
 const Dashboard = () => {
   const [isFetching, setFetching] = useState(false)
   const [data, setData ] = useState([])
   const [country, setCountry] = useState('')
-  const [countryStatsData, setcountryStatsData] = useState([])
+  //const [countryStatsData, setcountryStatsData] = useState([])
 
   useEffect(() => {
     (async function() {
       setFetching(true)
       setData(await fetchSummaryData())
-      setcountryStatsData(await fetchCountriesDetailedStats())
+      //setcountryStatsData(await fetchCountriesDetailedStats())
       setFetching(false)
     })();
 

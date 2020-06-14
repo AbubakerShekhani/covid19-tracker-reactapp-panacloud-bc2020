@@ -6,10 +6,7 @@ import styles from './Chart.module.css'
 
 const Chart = (props) => {
 
-  const country     = props.country
   const { confirmed, recovered, deaths } = props.data
-
-  console.log("Props")
 
   //const summaryData = props.data
 
