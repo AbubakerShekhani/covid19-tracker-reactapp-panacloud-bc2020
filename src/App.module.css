@@ -1,9 +1,26 @@
 body {
-  background-color: rgb(250, 250, 250);
+  background-color: rgb(250, 250,250);
+}
+
+.logo {
+  width: 370px;
+  margin-top: 50px;
 }
 
 .container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  min-width: 800px;
+}
+
+
+@media only screen and (max-width: 770px) {
+  .container {
+    margin: 0 10%;
+  }
+
+  .logo {
+    width: 100%;
+  }
 }

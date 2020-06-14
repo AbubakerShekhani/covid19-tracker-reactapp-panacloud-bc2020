@@ -3,8 +3,9 @@ import { Cards, Chart } from './components'
 import Countries from './components/CountryPicker/CountryPicker'
 import styles from './App.module.css'
 import { fetchSummaryData, fetchDataByCountry, fetchCountriesDetailedStats } from './api'
+import logo from './images/logo.png';
 
-function App() {
+const Dashboard = () => {
   const [isFetching, setFetching] = useState(false)
   const [data, setData ] = useState([])
   const [country, setCountry] = useState('')
@@ -38,10 +39,13 @@ function App() {
   return (
     <div>
       <div className={styles.container}>
-
-          <Countries handleChangeCountry={handleChangeCountry}/>
-
+        <img className={styles.logo} src={logo} alt="COVID-19" />
+        <div className={styles.container}>
+          Data Last Updated On: { new Date(data.lastUpdate).toDateString() }
+        </div>
+        <Countries handleChangeCountry={handleChangeCountry}/>
       </div>
+
       <div className={styles.container}>
           { isFetching ? <div>Loading...</div>: <Cards summaryData = {data} /> }
         </div>
@@ -53,4 +57,4 @@ function App() {
   );
 }
 
-export default App;
+export default Dashboard;

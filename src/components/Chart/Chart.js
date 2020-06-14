@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Grid } from '@material-ui/core';
 import { fetchDailyData } from '../../api';
 import { Bar, Line } from 'react-chartjs-2'
 import styles from './Chart.module.css'
@@ -49,6 +50,10 @@ const Chart = (props) => {
           },
         ],
         }}
+        options={{
+          legend: { display: false },
+          title: { display: true, text: `World Stats` },
+        }}
       />
     ) :null
     );
@@ -69,15 +74,23 @@ const Chart = (props) => {
         }}
         options={{
           legend: { display: false },
-          title: { display: true, text: `Current state in ${country}` },
+          title: { display: true, text: `Infected, Recovered & Deaths` },
         }}
       />
     ) : null
   );
 
   return (
-    <div className={styles.container}>
-      { country ? barChart: lineChart }
+    <div className={styles.gridContainer}>
+      <Grid container spacing={3} sm={12} md={12} justify="center" >
+
+        <Grid item xs={12} md={6} >
+        { barChart }
+        </Grid>
+        <Grid item xs={12} md={6} >
+        { lineChart}
+        </Grid>
+      </Grid>
     </div>
   )
 }
