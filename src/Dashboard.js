@@ -34,7 +34,7 @@ const Dashboard = () => {
     }
 
     //const countryData12 = countriesData.map(country => country.country)
-    //console.log(countryData12)
+    console.log(selectedCountry)
 
   }
 

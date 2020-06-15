@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { FormControl, NativeSelect, Typography, Grid } from '@material-ui/core';
+import { FormControl, Grid } from '@material-ui/core';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from '@material-ui/core/TextField';
 import { fetchCountries } from '../../api/'
 import styles from './CountryPicker.module.css';
 
@@ -13,18 +15,25 @@ const Countries = ({handleChangeCountry}) => {
     };
 
     fetchCountriesFromAPI();
+
+
   }, [])
 
   return (
+    <div className={styles.container}>
     <Grid container spacing={3} sm={12} md={12} justify="center"  >
-
-      <FormControl className={styles.formControl} >
-        <NativeSelect defaultValue="" onChange={(e) => handleChangeCountry(e.target.value)}>
-          <option value="">World Wide</option>
-          {countries.map((country, idx) => <option key={idx} value={country}>{country}</option>)}
-        </NativeSelect>
+      <FormControl >
+        <Autocomplete
+          id="country-selection"
+          onChange={(event, value) => handleChangeCountry(value)}
+          options={countries}
+          getOptionLabel={(countries) => countries}
+          style={{ width: 300 }}
+          renderInput={(countries) => <TextField {...countries} label="World Wide" variant="outlined" />}
+        />
       </FormControl>
     </Grid>
+    </div>
   )
 }
 
