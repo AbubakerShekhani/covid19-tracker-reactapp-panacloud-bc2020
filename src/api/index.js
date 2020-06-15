@@ -59,7 +59,7 @@ export const fetchDataByCountry = async (country) => {
 export const fetchCountries = async() => {
   try {
     const response  = await axios.get(`${baseURL2}/countries`);
-    console.log(response.data);
+
     return response.data.map((country) => country.country);
   } catch(err) {
     return err;
@@ -89,6 +89,26 @@ export const fetchCountriesDetailedStats = async () => {
 
   } catch (err) {
     return err
+  }
+}
+
+
+export const fetchAllData = async () => {
+  try {
+    const countriesData = `${baseURL2}/countries`
+
+    const response = await axios.get(countriesData)
+    const countryInfoDetails = response.data.map((data, idx) => {
+      return {
+        country: data.country,
+        countryInfo: data.countryInfo,
+        cases: data.cases,
+        updated: data.updated
+      }
+    })
+    return countryInfoDetails
+  } catch (error) {
+    return error;
   }
 }
 

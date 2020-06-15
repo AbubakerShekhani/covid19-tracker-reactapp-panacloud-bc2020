@@ -11,14 +11,12 @@ const Cards = ({summaryData}) => {
 
   if (!confirmed) {
     return 'Loading...';
-  } else {
-    console.log(summaryData)
   }
 
   return (
     <div className={styles.gridContainer}>
       <div className={styles.gridContainer}>
-      <Grid container spacing={3} sm={12} md={12} justify="center" gutterBottom >
+      <Grid container spacing={3}  justify="center"  >
           <Grid item xs={12} md={3} component={Card} className={cx(styles.card, styles.infected)}>
             <CardContent>
               <Typography variant="h5" component="h2" color="textSecondary" gutterBottom>
@@ -70,7 +68,7 @@ const Cards = ({summaryData}) => {
         </Grid>
       </div>
       <div className={styles.gridContainer}>
-        <Grid container spacing={3} sm={12} md={12} justify="center" gutterBottom >
+        <Grid container spacing={3} justify="center"  >
           <Grid item xs={12} md={3} component={Card} className={cx(styles.card, styles.deaths)}>
             <CardContent>
               <Typography variant="h5" component="h2" color="textSecondary" gutterBottom>

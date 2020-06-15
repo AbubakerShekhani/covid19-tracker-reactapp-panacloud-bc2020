@@ -79,7 +79,7 @@ const Chart = (props) => {
 
   return (
     <div className={styles.gridContainer}>
-      <Grid container spacing={3} sm={12} md={12} justify="center" >
+      <Grid container spacing={3} justify="center" >
 
         <Grid item xs={12} md={6} >
         { barChart }
