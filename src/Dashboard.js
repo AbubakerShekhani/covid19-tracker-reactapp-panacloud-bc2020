@@ -5,6 +5,7 @@ import styles from './App.module.css'
 import { fetchSummaryData, fetchDataByCountry } from './api'
 import logo from './images/logo.png';
 import Flag from './components/Flag/Flag';
+import MyFooter from './components/Footer/MyFooter'
 
 const Dashboard = () => {
   const [isFetching, setFetching] = useState(false)
@@ -56,7 +57,7 @@ const Dashboard = () => {
       <div className={styles.container}>
         <Chart data={data} country={country} />
       </div>
-
+      <MyFooter />
 
     </div>
   );
