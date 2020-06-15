@@ -13,7 +13,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 http://covid19-trackerapp-abubaker-pcbc2020.surge.sh/
 
 <h2>App Screenshot</h2>
-![alt text](https://user-images.githubusercontent.com/16397892/84690724-5ec45a80-af5c-11ea-8ac1-8144eaf50aee.jpg)
+
+![Corona-Tracker](https://user-images.githubusercontent.com/16397892/84690724-5ec45a80-af5c-11ea-8ac1-8144eaf50aee.jpg)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
