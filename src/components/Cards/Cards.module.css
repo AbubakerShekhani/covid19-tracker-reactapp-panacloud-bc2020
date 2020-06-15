@@ -27,6 +27,10 @@
   margin: 0 2% !important;
 }
 
+.marginTop {
+  margin-top: 50px;
+}
+
 
 @media only screen and (max-width: 770px) {
   .card {

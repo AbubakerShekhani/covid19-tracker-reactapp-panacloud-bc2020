@@ -4,6 +4,7 @@ import Countries from './components/CountryPicker/CountryPicker'
 import styles from './App.module.css'
 import { fetchSummaryData, fetchDataByCountry } from './api'
 import logo from './images/logo.png';
+import Flag from './components/Flag/Flag';
 
 const Dashboard = () => {
   const [isFetching, setFetching] = useState(false)
@@ -47,6 +48,8 @@ const Dashboard = () => {
       </div>
 
       <div className={styles.container}>
+          { country ? <Flag flagURL = {data.flag} /> : '' }
+
           { isFetching ? <div>Loading...</div>: <Cards summaryData = {data} /> }
         </div>
 

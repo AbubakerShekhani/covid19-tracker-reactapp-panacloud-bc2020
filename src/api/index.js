@@ -11,7 +11,7 @@ export const fetchSummaryData = async () => {
   try {
     const summaryURL = `${baseURL2}/all`
 
-    const { data: { cases, todayCases, recovered, todayRecovered, active, critical, deaths, updated, affectedCountries } } = await axios.get(summaryURL)
+    const { data: { cases, todayCases, recovered, todayRecovered, active, critical, deaths, todayDeaths, updated, affectedCountries } } = await axios.get(summaryURL)
 
     const summaryData = { confirmed: cases,
                           todayCases: todayCases,
@@ -20,6 +20,7 @@ export const fetchSummaryData = async () => {
                           active: active,
                           critical: critical,
                           deaths: deaths,
+                          todayDeaths,
                           affectedCountries: affectedCountries,
                           lastUpdate: updated }
 
@@ -34,7 +35,7 @@ export const fetchDataByCountry = async (country) => {
   let countryURL = `${baseURL2}/countries/${country}`;
 
   try {
-    const { data: { cases, todayCases, recovered, todayRecovered, active, critical, deaths, updated, affectedCountries } } = await axios.get(countryURL)
+    const { data: { cases, todayCases, recovered, todayRecovered, active, critical, deaths, todayDeaths, updated, countryInfo } } = await axios.get(countryURL)
 
     const summaryData = {
       confirmed: cases,
@@ -44,7 +45,8 @@ export const fetchDataByCountry = async (country) => {
       active: active,
       critical: critical,
       deaths: deaths,
-      affectedCountries: affectedCountries,
+      todayDeaths,
+      flag: countryInfo.flag,
       lastUpdate: updated }
 
     return summaryData
