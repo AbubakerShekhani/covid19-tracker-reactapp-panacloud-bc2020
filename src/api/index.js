@@ -45,7 +45,7 @@ export const fetchDataByCountry = async (country) => {
       active: active,
       critical: critical,
       deaths: deaths,
-      todayDeaths,
+      todayDeaths: todayDeaths,
       flag: countryInfo.flag,
       lastUpdate: updated }
 
@@ -58,9 +58,9 @@ export const fetchDataByCountry = async (country) => {
 
 export const fetchCountries = async() => {
   try {
-    const { data: { countries } } = await axios.get(`${baseURL}/countries`);
-
-    return countries.map((country) => country.name);
+    const response  = await axios.get(`${baseURL2}/countries`);
+    console.log(response.data);
+    return response.data.map((country) => country.country);
   } catch(err) {
     return err;
   }
