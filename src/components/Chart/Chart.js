@@ -36,13 +36,13 @@ const Chart = (props) => {
           datasets:[{
             data: dailyStatisticsData.map((data) => data.confirmed),
             label: 'Infected Cases',
-            borderColor: '#333fff',
+            borderColor: '#3232FA',
             fill:true
           }, {
             data: dailyStatisticsData.map((data) => data.deaths),
             label: 'Deaths',
             borderColor: 'red',
-            backgroundColor: 'rgba(255, 0,0 0.5)',
+            backgroundColor: 'rgba(240, 26,26 0.8)',
             fill: true,
           },
         ],
@@ -64,8 +64,8 @@ const Chart = (props) => {
           datasets: [
             {
               label: 'People',
-              backgroundColor: ['rgba(0, 0, 255, 0.5)', 'rgba(0, 255, 0, 0.5)', 'rgba(255, 0, 0, 0.5)'],
-              data: [confirmed.value, recovered.value, deaths.value],
+              backgroundColor: ['rgba(50, 50, 250, 0.8)', 'rgba(80, 250, 50, 0.8)', 'rgba(240, 26, 26, 0.8)'],
+              data: [confirmed, recovered, deaths],
             },
           ],
         }}

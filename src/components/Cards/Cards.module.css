@@ -11,18 +11,15 @@
 }
 
 .infected {
-  color: rgb(0, 0, 255)
-  /*border-bottom: 10px solid rgba(0, 0, 255, 0.5);*/
+  color: rgb(50, 50, 250)
 }
 
 .recovered{
-  color: rgb(22, 186, 0)
-  /*border-bottom: 10px solid rgba(0, 255, 0, 0.5);*/
+  color: rgb(80, 250, 50)
 }
 
 .deaths{
-  color: rgb(255, 0, 0)
-  /*border-bottom: 10px solid rgba(255, 0, 0, 0.5);*/
+  color: rgb(240, 26, 26)
 }
 
 .card {

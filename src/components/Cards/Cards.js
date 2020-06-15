@@ -24,7 +24,7 @@ const Cards = ({summaryData}) => {
               Infected
             </Typography>
             <Typography variant="h5" component="h2">
-              <CountUp start={0} end={confirmed.value} duration={2.1} className={styles.infected} separator="," />
+              <CountUp start={0} end={confirmed} duration={2.1} className={styles.infected} separator="," />
             </Typography>
           </CardContent>
         </Grid>
@@ -34,7 +34,7 @@ const Cards = ({summaryData}) => {
               Recovered
             </Typography>
             <Typography variant="h5" component="h2">
-              <CountUp start={0} end={recovered.value} duration={2.1} className={styles.recovered} separator="," />
+              <CountUp start={0} end={recovered} duration={2.1} className={styles.recovered} separator="," />
             </Typography>
           </CardContent>
         </Grid>
@@ -44,7 +44,7 @@ const Cards = ({summaryData}) => {
               Deaths
             </Typography>
             <Typography variant="h5" component="h2">
-              <CountUp start={0} end={deaths.value} duration={2.1} className={styles.deaths} separator="," />
+              <CountUp start={0} end={deaths} duration={2.1} className={styles.deaths} separator="," />
             </Typography>
           </CardContent>
         </Grid>

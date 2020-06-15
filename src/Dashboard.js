@@ -15,7 +15,7 @@ const Dashboard = () => {
     (async function() {
       setFetching(true)
       setData(await fetchSummaryData())
-      //setcountryStatsData(await fetchCountriesDetailedStats())
+
       setFetching(false)
     })();
 
@@ -49,9 +49,11 @@ const Dashboard = () => {
       <div className={styles.container}>
           { isFetching ? <div>Loading...</div>: <Cards summaryData = {data} /> }
         </div>
+
       <div className={styles.container}>
         <Chart data={data} country={country} />
       </div>
+
 
     </div>
   );

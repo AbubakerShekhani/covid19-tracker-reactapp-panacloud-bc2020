@@ -2,15 +2,26 @@ import axios from 'axios'
 
 const baseURL = 'https://covid19.mathdro.id/api'
 
-//const baseURL2 = 'https://api.covid19api.com/'
 
 const countriesStatsAPI = 'https://corona.lmao.ninja/v2/countries'
 
+const baseURL2 = 'https://corona.lmao.ninja/v2'
+
 export const fetchSummaryData = async () => {
   try {
-    const { data: { confirmed, recovered, deaths, lastUpdate } } = await axios.get(baseURL)
+    const summaryURL = `${baseURL2}/all`
 
-    const summaryData = { confirmed,recovered, deaths, lastUpdate }
+    const { data: { cases, todayCases, recovered, todayRecovered, active, critical, deaths, updated, affectedCountries } } = await axios.get(summaryURL)
+
+    const summaryData = { confirmed: cases,
+                          todayCases: todayCases,
+                          recovered: recovered,
+                          todayRecovered: todayRecovered,
+                          active: active,
+                          critical: critical,
+                          deaths: deaths,
+                          affectedCountries: affectedCountries,
+                          lastUpdate: updated }
 
     return summaryData
   } catch (error) {
@@ -20,11 +31,21 @@ export const fetchSummaryData = async () => {
 
 export const fetchDataByCountry = async (country) => {
 
-  let countryURL = `${baseURL}/countries/${country}`;
+  let countryURL = `${baseURL2}/countries/${country}`;
 
   try {
-    const { data: { confirmed, recovered, deaths, lastUpdate } } = await axios.get(countryURL)
-    const summaryData = { confirmed,recovered, deaths, lastUpdate }
+    const { data: { cases, todayCases, recovered, todayRecovered, active, critical, deaths, updated, affectedCountries } } = await axios.get(countryURL)
+
+    const summaryData = {
+      confirmed: cases,
+      todayCases: todayCases,
+      recovered: recovered,
+      todayRecovered: todayRecovered,
+      active: active,
+      critical: critical,
+      deaths: deaths,
+      affectedCountries: affectedCountries,
+      lastUpdate: updated }
 
     return summaryData
 
@@ -57,6 +78,7 @@ export const fetchDailyData = async () => {
   }
 };
 
+
 export const fetchCountriesDetailedStats = async () => {
   try {
     const { data }  = await axios.get(`${countriesStatsAPI}`);
@@ -67,3 +89,4 @@ export const fetchCountriesDetailedStats = async () => {
     return err
   }
 }
+
