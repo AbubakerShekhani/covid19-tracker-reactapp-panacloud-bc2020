@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FormControl, Grid } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
-import { fetchCountries } from '../../api/'
+import { fetchCountries } from '../../api'
 import styles from './CountryPicker.module.css';
 
 const Countries = ({handleChangeCountry}) => {
