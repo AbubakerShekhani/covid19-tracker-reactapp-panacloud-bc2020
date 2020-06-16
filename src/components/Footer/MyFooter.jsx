@@ -7,6 +7,10 @@ import Link from '@material-ui/core/Link';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary">
+      <Link href="https://github.com/AbubakerShekhani/covid19-tracker-reactapp-panacloud-bc2020">
+        View on Github
+      </Link>
+      <br/>
       {'Copyright © '}
       <Link color="inherit" href="http://abubakershekhani.com/blogs">
         Abubaker Shekhani
