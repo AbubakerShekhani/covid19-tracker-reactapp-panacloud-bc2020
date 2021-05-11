@@ -10,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Material UI for layout and styling
 
 <h2>Project LIVE URL</h2> 
-http://covid19-trackerapp-abubaker-pcbc2020.surge.sh/
+https://covid19-tracker-by-abubaker.netlify.app/
 
 <h2>App Screenshot</h2>
 
